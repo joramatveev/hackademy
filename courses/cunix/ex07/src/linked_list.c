@@ -1,12 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct node 
+typedef struct node
 {
     void *data;
     struct node *next;
-}
-node_t;
+} node_t;
 
 node_t *list_create(void *data)
 {
@@ -25,7 +24,7 @@ void list_destroy(node_t **head, void (*fp)(void *data))
         list_destroy(&next, fp);
 
         (*fp)((*head)->data);
-        
+
         free(*head);
     }
 }
@@ -86,7 +85,7 @@ void *list_shift(node_t **head)
 
     free(old_head->data);
     free(old_head);
-    
+
     return head;
 }
 
@@ -104,7 +103,7 @@ void *list_remove(node_t **head, int pos)
 
     free(removed_node->data);
     free(removed_node);
-    
+
     return removed_node;
 }
 
