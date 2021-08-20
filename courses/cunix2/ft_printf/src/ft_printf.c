@@ -6,7 +6,7 @@ void ft_printf(const char *format, ...)
     va_start(arg, format);
 
     unsigned long str_len = my_strlen(format);
-    int flags[4] = {0, 0, 0, 0 }; // [0] = 0, [1] = -, [2] = +, [3] = space
+    int flags[4] = {0, 0, 0, 0 };
     unsigned long width = 0;
 
     for (unsigned long i = 0; i < str_len; i++)
