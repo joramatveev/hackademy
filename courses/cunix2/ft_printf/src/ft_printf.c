@@ -59,17 +59,17 @@ void ft_printf(const char *format, ...)
             {
                 switch (format[i])
                 {
-                case '0':
-                    flags[0] = 1;
-                    break;
-                case '-':
-                    flags[1] = 1;
-                    break;
-                case '+':
-                    flags[2] = 1;
-                    break;
-                default:
-                    flags[3] = 1;
+                    case '0':
+                        flags[0] = 1;
+                        break;
+                    case '-':
+                        flags[1] = 1;
+                        break;
+                    case '+':
+                        flags[2] = 1;
+                        break;
+                    default:
+                        flags[3] = 1;
                 }
                 i++;
             }
@@ -98,22 +98,22 @@ void ft_printf(const char *format, ...)
 
             switch (format[i])
             {
-            case 'i':
-            case 'd':
-                inserted_data = i_conversion(va_arg(arg, int), width, flags);
-                break;
-            case 'c':
-                print_char(va_arg(arg, int), width);
-                continue;
-                break;
-            case 's':
-                inserted_data = s_conversion(va_arg(arg, char *), width, flags);
-                break;
-            case '%':
-                inserted_data = "%";
-                break;
-            default:
-                exit(1);
+                case 'i':
+                case 'd':
+                    inserted_data = i_conversion(va_arg(arg, int), width, flags);
+                    break;
+                case 'c':
+                    print_char(va_arg(arg, int), width);
+                    continue;
+                    break;
+                case 's':
+                    inserted_data = s_conversion(va_arg(arg, char *), width, flags);
+                    break;
+                case '%':
+                    inserted_data = "%";
+                    break;
+                default:
+                    exit(1);
             }
 
             write(STDOUT_FILENO, inserted_data, ft_strlen(inserted_data));
